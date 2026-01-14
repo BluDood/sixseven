@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  --background: #000;
+  --text: #fff;
+  --text-sec: #aaa;
+  --foreground: #111;
+  --foreground-sec: #222;
+  --border: #333;
+  --bludood: #0064ff;
+  --red: #f00;
+  --orange: #f90;
+  --green: #0f0;
+
+  --height: calc(
+    100svh - var(--safe-area-inset-top) - var(--safe-area-inset-bottom)
+  );
+}
+
+body {
+  font-family: 'Open Sans Variable', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  height: 14px;
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+  border: 4px solid var(--background);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 5px;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+button.default-style {
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  color: var(--text);
+  cursor: pointer;
+  width: 100%;
+  transition: 200ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button.default-style:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.default-style span {
+  font-size: 22px;
+}
+
+input.default-style {
+  font-family: inherit;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  resize: none;
+  height: 42px;
+  color: var(--text);
+  width: 100%;
+  transition: 200ms ease;
+  min-width: 0;
+}
+
+input.default-style:disabled {
+  cursor: not-allowed;
+  color: var(--text-sec);
+}
+
+select.default-style {
+  appearance: none;
+  font-family: inherit;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  resize: none;
+  height: 42px;
+  color: var(--text);
+  width: 100%;
+  background-image: linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, white 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(18px),
+    calc(100% - 15px) calc(18px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+  transition: 200ms ease;
+}
+
+select.default-style:disabled {
+  cursor: not-allowed;
+  color: var(--text-sec);
+}
+
+textarea.default-style {
+  font-family: inherit;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--background);
+  resize: vertical;
+  height: 80px;
+  min-height: 45px;
+  color: var(--text);
+  width: 100%;
+}
+
+.default-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.default-field > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5ch;
+}
+
+.default-field button {
+  all: unset;
+  display: flex;
+  transition: 200ms ease;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.default-field button:hover {
+  opacity: 1;
+}
+
+.default-note {
+  font-size: 14px;
+  color: var(--text-sec);
+}
+
+.default-note > a {
+  color: var(--bludood);
+  text-decoration: none;
+}
+
+.anim-appear {
+  animation: appear 500ms ease;
+}
+
+.notice {
+  animation: appear 500ms ease;
+  background: var(--bludood);
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: fit-content;
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 50px auto;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
