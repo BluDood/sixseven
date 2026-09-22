@@ -1,4 +1,7 @@
-import 'dotenv/config'
+import { loadEnvFile } from 'node:process'
+try {
+  loadEnvFile('.env')
+} catch {}
 
 import express from 'express'
 
